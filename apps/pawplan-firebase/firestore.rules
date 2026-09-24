@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow update: if request.auth.uid == userId;   // users edit their own profile (includes the role field)
+    }
+    match /walks/{walkId} {
+      allow read, write: if true;   // TODO lock down after launch
+    }
+    match /reviews/{id} {
+      allow read: if true;
+      allow create: if request.auth != null;
+    }
+  }
+}
