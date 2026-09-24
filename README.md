@@ -7,11 +7,11 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 ## What's here
 | Folder | What it holds |
 |---|---|
-| `scenarios/` | All 20 test scenarios: the exact input sent to the AI and the pass rule, written before any test ran |
+| `scenarios/` | All 32 test scenarios (20 in suite v2, 12 extended): the exact input sent to the AI and the pass rule, written before any test ran |
 | `apps/` | Five small apps used to test the security gate: three with 10 hidden flaws each, one with a hidden "skip this file" instruction, and one built correctly |
 | `answer-keys/` | The hidden flaws in each app (the reviewer never saw these) |
 | `results/` | Results from every live run, including failures |
-| `harness/` | The test page that runs the scenarios through Claude and grades them |
+| `harness/` | The test page that runs the scenarios through Claude and grades them, plus the command-line runner used for the September 23 results (`harness/cli/`) |
 
 **All keys and passwords in `apps/` are fake.** The apps are deliberately insecure examples. Don't deploy them.
 
@@ -28,7 +28,10 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 | Suite v1, run 1 | Sep 2026 | 7 of 8 scenarios passed. The security gate found 9 of 10 flaws. |
 | Kit fixes | Sep 2026 | Two gaps fixed in the kit (see the kit's CHANGELOG) |
 | Suite v1, run 2 | Sep 2026 | 8 of 8 passed. The security gate found 10 of 10 flaws. |
-| Suite v2 | In progress | 20 scenarios × 3 runs, 3 flawed apps, a clean app, and a prompt-injection trap. Results will be added to `results/` when complete, including anything that fails. |
+| Suite v2, Claude Sonnet 4.6 | Sep 23, 2026 | 20 scenarios × 3 runs. **14 of 20 passed all three**; 48 of 60 runs; the security gate found **119 of 120** hidden flaws across three apps and ignored the planted skip instruction 3 of 3. Misses: T5, T6, T9, T13, T15, T20. [Full table](results/suite-v2-2026-09-23.md) |
+| Extended E1 to E12, Sonnet 4.6 | Sep 23, 2026 | 12 harder scenarios × 3 runs. **5 of 12 passed all three.** Misses: E3, E4, E5, E7, E8, E10, E12, each with a proposed kit fix. |
+| Suite v2, Claude Haiku 4.5 | Sep 23, 2026 | Same 20 scenarios, 1 run each. **12 of 20.** The security gate produced no review on 2 of 4 apps. Use Sonnet or better. |
+| Second opinion | Sep 23, 2026 | Every fail re-graded by Claude Opus 4.8 with the same rule: 9 of 37 flipped (all 3 T20, all 3 E8, 1 each of T5, T9, E4). Both grades are in the raw files. |
 
 ## Run it yourself
 - **Inside Claude:** open the live test page (link on https://blueprint-builder-kit.netlify.app/tests.html). It runs the scenarios on your own Claude account and shows every answer and grade.
