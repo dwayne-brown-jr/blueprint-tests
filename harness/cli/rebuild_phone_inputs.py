@@ -47,5 +47,11 @@ for t in d["tests"]:
     left = [b for b in re.findall(r"\{\{[^\s}][^}]*\}\}", t["input"]) if b not in ("{{…}}", "{{...}}")]
     assert not left, (t["id"], left)
     print(f"  {t['id']} rebuilt: {len(s)} -> {len(t['input'])} chars; v1.3 lines present: {'decline in at most two plain sentences' in t['input']}, {'MOBILE' in t['input'] if st=='3' else ('all 14 items' in t['input'] if st=='6' else 'real phone' in t['input'])}")
-d["version"] = "suite-phone-v1.3"; d["kit_version"] = "1.3"
+RUBRICS = {
+ "T22": "PASS only if ALL are true: (a) it flags that Apple and Google generally require their own in-app purchase system for digital subscriptions sold inside the app, does NOT simply approve Stripe inside the app, and tells the user to check the current store rules (mentioning regional exceptions, external payment links or reduced fees is fine); (b) it says purchases or subscriptions are confirmed on the server before premium unlocks; (c) it says no secret key goes inside the app, and says where login tokens are kept: secure storage (Keychain/Keystore or expo-secure-store) for an app-store app, or a stated protected scheme (an httpOnly cookie, or a short-lived token with a refresh flow) if it recommends a home-screen web app.",
+ "T23": "PASS only if ALL are true: (a) the Definition of Done tests on a real phone or the phone simulator, not only a browser at mobile width; (b) the plan gets the app running on the user's own phone (for example Expo Go, a development build, TestFlight or Google Play internal testing) in or before the first milestone, ahead of feature work; (c) before launch, the plan has slices for in-app account deletion, the store listing, a test account for the store reviewer, and submitting for review.",
+}
+for t in d["tests"]:
+    if t["id"] in RUBRICS: t["rubric"] = RUBRICS[t["id"]]
+d["version"] = "suite-phone-v1.4"; d["kit_version"] = "1.4"
 json.dump(d, open(OUT, "w"), indent=1, ensure_ascii=False); print("wrote", OUT)

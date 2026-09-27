@@ -2,7 +2,7 @@
 
 Blueprint is a kit of prompts that makes an AI plan before it builds, push back on bad ideas, and check an app's security before launch. This repository holds everything we used to test it, so you can check our work instead of taking our word for it.
 
-**Kit versions tested:** v1.0 (September 23, 2026), v1.1, v1.2 and v1.3 (September 26 to 27, 2026). **Site:** https://blueprint-builder-kit.netlify.app
+**Kit versions tested:** v1.0 (September 23, 2026), v1.1 and v1.2 (September 26), v1.3 and v1.4 (September 26 to 27, 2026). **Site:** https://blueprint-builder-kit.netlify.app
 
 ## What's here
 | Folder | What it holds |
@@ -46,6 +46,11 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 | Extended re-run, kit v1.3 | Sep 26, 2026 | **12 of 12**; 36 of 36 runs. |
 | Phone-app scenarios, kit v1.3, Sonnet 4.6 | Sep 26 to 27, 2026 | **2 of 5 passed all three** (T21; T24 with 28 of 30 flaws). T22 0 of 3: it steers to a web app because of the store payment rules, then never says where login tokens are kept (rule c); both graders agree. T23 1 of 3 by the suite's grader, 3 of 3 by Opus (which milestone the real-phone slice sits in). T25 2 of 3: one invented High. [Table](results/phone-2026-09-27-kit-v1.3.md) |
 | Haiku 4.5 re-run, kit v1.3 | Sep 27, 2026 | **18 of 20** on the original set (T12 now reaches the reframe but stops before the verdict; T19 leaves session notes unmarked), 40 of 40 flaws; phone **4 of 5** (T24: 8 of 10). Both graders agree on all three misses. |
+| Kit v1.4 | Sep 27, 2026 | Stage 2 cuts one or two extra features itself and writes; stage 3 says where web-app login tokens live; stage 6 treats RLS-backed display fields as Medium; stage 1 keeps Rounds 2 and 3 in one reply. Suite rules T22 and T23 loosened (see scenarios/README.md). |
+| Suite v2 re-run, kit v1.4, Sonnet 4.6 | Sep 27, 2026 | **19 of 20 passed all three**; 58 of 60 runs; 119 of 120 flaws; 0 invented. T19 fixed. The one miss is T8, twice: the suite's grader said the 30,000-character answer had 'no gap list'; Opus read the same answers and passed both, quoting the gaps. Grader error on long input, the third time on this scenario. [Before/after](results/kit-v1.3-vs-v1.4-2026-09-27.md) |
+| Extended re-run, kit v1.4 | Sep 27, 2026 | **11 of 12**; 35 of 36 runs. E10 (Skills path) asked 9 questions once instead of 8; both graders agree. |
+| Phone-app scenarios, kit v1.4, Sonnet 4.6 | Sep 27, 2026 | **5 of 5 passed all three** (was 2 of 5 on v1.3); 15 of 15 runs; 28 of 30 flaws on the Expo app. [Before/after](results/phone-kit-v1.3-vs-v1.4-2026-09-27.md) |
+| Haiku 4.5 re-run, kit v1.4 | Sep 27, 2026 | **19 of 20** (T12 and T19 fixed; the one miss, T13, answered in Spanish but announced a Round 3 verdict to come; Opus passed it) · 39 of 40 flaws · phone **3 of 5** (T22: a bare 'Stripe works in a web app' with no server confirmation; T24: 8 of 10, missed account deletion and permissions; both graders agree). |
 
 ## Run it yourself
 - **Inside Claude:** open the live test page (link on https://blueprint-builder-kit.netlify.app/tests.html). It runs the scenarios on your own Claude account and shows every answer and grade.

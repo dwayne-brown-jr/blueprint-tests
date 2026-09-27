@@ -2,6 +2,15 @@
 
 Every change to the Blueprint kit, newest first. Test results behind each change are published at blueprint-builder-kit.netlify.app/tests.html.
 
+## v1.4 — September 27, 2026 (fixes from the v1.3 run)
+The v1.3 run scored 19 of 20, 12 of 12 and, for the first time at three runs each, 2 of 5 on the phone scenarios (18 of 20 and 4 of 5 on Haiku). These changes address what was left.
+- Stage 2: one or two features over the V1 cap get cut by the AI, with a one-line reason each, and the spec is written in the same reply; it asks first only when you've insisted every feature is a must-have or there are many more than seven (T19). Therapy and session notes, intake forms, medical history and medications are named as health information (Haiku T19).
+- Stage 3: when it recommends a home-screen web app over an app-store app, it says where the login token lives in the browser and how it is protected (T22).
+- Stage 6: the "backed by RLS or a private bucket means Medium" rule now covers client-supplied display fields such as a sender name (T25).
+- Stage 1: Rounds 2 and 3 come in the same reply (Haiku T12).
+- Claude Skills updated to match.
+- Test suite: T22 accepts a protected browser token scheme when the AI recommends the web app; T23 accepts the real-phone slice in or before the first milestone.
+
 ## v1.3 — September 26, 2026 (fixes from the v1.2 re-run)
 The v1.2 re-run scored 19 of 20, 12 of 12 and 19 of 20 on Haiku. Two sentences address the two misses, and the phone-app scenarios join the full three-run suite.
 - Stage 6: a file-type or size check that lives only in the browser is Medium at most when the bucket is private, per-user and served through expiring links (T15, one review in three had rated it High). The security-gate skill says the same.
