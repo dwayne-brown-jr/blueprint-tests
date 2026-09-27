@@ -3,7 +3,7 @@
 blanks into capture groups, pull each scenario's filled-in values out of the old input, and pour them
 into the v1.1 prompt block. Anything after the prompt (e.g. "(skip design, just plan it)") is kept."""
 import json, re, sys
-ARCH = "/Users/dwayneleon/Desktop/My Workspace/Projects/Blueprint/_archive/2026-09-23/blueprint-kit"
+ARCH = "/Users/dwayneleon/Desktop/My Workspace/Projects/Blueprint/test-runs/kit-v1.0-prompts"
 KIT  = "/Users/dwayneleon/Desktop/My Workspace/Projects/Blueprint/kit"
 FILES = {"0":"0-existing-app/prompt.md","1":"1-interrogate/prompt.md","2":"2-spec/prompt.md","3":"3-architect/prompt.md","4":"4-design/prompt.md","5":"5-build/prompt.md","6":"6-ship/prompt.md"}
 BLANK = re.compile(r"\{\{(?!…\}\})[^}]*\}\}")
