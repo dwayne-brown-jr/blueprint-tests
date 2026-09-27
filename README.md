@@ -2,7 +2,7 @@
 
 Blueprint is a kit of prompts that makes an AI plan before it builds, push back on bad ideas, and check an app's security before launch. This repository holds everything we used to test it, so you can check our work instead of taking our word for it.
 
-**Kit version tested:** v1.0 (September 2026). **Site:** https://blueprint-builder-kit.netlify.app
+**Kit versions tested:** v1.0 (September 23, 2026) and v1.1 (September 26, 2026). **Site:** https://blueprint-builder-kit.netlify.app
 
 ## What's here
 | Folder | What it holds |
@@ -32,6 +32,10 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 | Extended E1 to E12, Sonnet 4.6 | Sep 23, 2026 | 12 harder scenarios × 3 runs. **5 of 12 passed all three.** Misses: E3, E4, E5, E7, E8, E10, E12, each with a proposed kit fix. |
 | Suite v2, Claude Haiku 4.5 | Sep 23, 2026 | Same 20 scenarios, 1 run each. **12 of 20.** The security gate produced no review on 2 of 4 apps. Use Sonnet or better. |
 | Second opinion | Sep 23, 2026 | Every fail re-graded by Claude Opus 4.8 with the same rule: 9 of 37 flipped (all 3 T20, all 3 E8, 1 each of T5, T9, E4). Both grades are in the raw files. |
+| Kit v1.1 | Sep 26, 2026 | Twelve changes, one per miss (see KIT-CHANGELOG.md). Inputs rebuilt from the v1.1 prompts. |
+| Suite v2 re-run, kit v1.1, Sonnet 4.6 | Sep 26, 2026 | **18 of 20 passed all three** (was 14); 58 of 60 runs; 119 of 120 flaws; 0 invented Critical/High on the clean app (was 2). Fixed: T5, T6, T9, T13, T15, T20. New single-run misses T8, T19, both passed by the second grader. [Before/after table](results/kit-v1.0-vs-v1.1-2026-09-26.md) |
+| Extended re-run, kit v1.1 | Sep 26, 2026 | **9 of 12** (was 5). Fixed: E3, E4, E5, E7, E8, E10. Misses E2, E9 (both passed by the second grader; old rules conflict with the new two-sentence-decline and review-anyway behavior) and E12 (a missing feature rated High; v1.2 item). |
+| Haiku 4.5 re-run, kit v1.1 | Sep 26, 2026 | **17 of 20** (was 12); the security gate now reviews every app: 40 of 40 flaws (was 20 of 40). Misses T10 (marked a slice done without checking the known error), T12 (asked two more questions instead of giving the DON'T verdict; it built nothing) and T15 (three false alarms on the clean app), all confirmed by the second grader. |
 
 ## Run it yourself
 - **Inside Claude:** open the live test page (link on https://blueprint-builder-kit.netlify.app/tests.html). It runs the scenarios on your own Claude account and shows every answer and grade.
