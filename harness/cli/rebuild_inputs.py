@@ -38,8 +38,12 @@ report = []
 for t in d["tests"]:
     stage = t["stage"][0]
     if t["stage"].startswith("5 Build session"):
-        s = json.dumps(t["input"]); assert AG_OLD in s
-        t["input"] = t["input"].replace(AG_OLD, AG_NEW); report.append((t["id"], "AGENTS rule swapped", "")); 
+        AG_EDITS = [(AG_OLD, AG_NEW),
+                    ('- Say "untested" when it is.', '- Say "untested" when it is.\n- Check §2 before marking anything done: if "Known broken" lists a problem in the slice Dee says is finished, don\'t mark it complete; ask her to test or fix that first.')]
+        for o, n in AG_EDITS:
+            assert t["input"].count(o) == 1, f"{t['id']}: expected 1 match for {o[:40]!r}"
+            t["input"] = t["input"].replace(o, n)
+        report.append((t["id"], "AGENTS rules updated", "")); 
     else:
         first = t["input"] if isinstance(t["input"], str) else t["input"][0]["content"]
         nb = rebuild(first, stage)
@@ -50,7 +54,7 @@ for t in d["tests"]:
     if t["id"] in RUBRICS: t["rubric"] = RUBRICS[t["id"]]
     same = json.dumps(t["input"]) == json.dumps(pj[t["id"]]["input"])
     report[-1] = (report[-1][0], report[-1][1], "identical to simple patch" if same else "differs from simple patch (phone additions expected for stages 3/5/6)")
-d["version"] = "suite-v2.1"; d["kit_version"] = "1.1"
+d["version"] = "suite-v2.2"; d["kit_version"] = "1.2"
 json.dump(d, open(out, "w"), indent=1, ensure_ascii=False)
 for r in report: print(f"  {r[0]:4} {r[1]:22} {r[2]}")
 print("wrote", out)
