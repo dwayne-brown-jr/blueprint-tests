@@ -7,8 +7,8 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 ## What's here
 | Folder | What it holds |
 |---|---|
-| `scenarios/` | All 32 test scenarios (20 in suite v2, 12 extended): the exact input sent to the AI and the pass rule, written before any test ran |
-| `apps/` | Five small apps used to test the security gate: three with 10 hidden flaws each, one with a hidden "skip this file" instruction, and one built correctly |
+| `scenarios/` | All 37 test scenarios (20 in suite v2, 12 extended, 5 phone-app): the exact input sent to the AI and the pass rule, written before any test ran |
+| `apps/` | Six small apps used to test the security gate: three web apps with 10 hidden flaws each, one with a hidden "skip this file" instruction, one built correctly, and one Expo phone app with 10 hidden flaws |
 | `answer-keys/` | The hidden flaws in each app (the reviewer never saw these) |
 | `results/` | Results from every live run, including failures |
 | `harness/` | The test page that runs the scenarios through Claude and grades them, plus the command-line runner used for the September 23 results (`harness/cli/`) |
@@ -32,6 +32,7 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 | Extended E1 to E12, Sonnet 4.6 | Sep 23, 2026 | 12 harder scenarios × 3 runs. **5 of 12 passed all three.** Misses: E3, E4, E5, E7, E8, E10, E12, each with a proposed kit fix. |
 | Suite v2, Claude Haiku 4.5 | Sep 23, 2026 | Same 20 scenarios, 1 run each. **12 of 20.** The security gate produced no review on 2 of 4 apps. Use Sonnet or better. |
 | Second opinion | Sep 23, 2026 | Every fail re-graded by Claude Opus 4.8 with the same rule: 9 of 37 flipped (all 3 T20, all 3 E8, 1 each of T5, T9, E4). Both grades are in the raw files. |
+| Phone-app tests, run 1 | Sep 23, 2026 | 5 new scenarios (T21 to T25) for the phone-app additions, 1 run each in Claude Code: 4 of 5 first time; T21 failed, the stage 3 prompt was fixed, and it passed on re-run. Security gate on the Expo app: 10 of 10; clean app through the 14-item review: 0 false alarms. Not yet the 3-run test-page result. [Write-up](results/phone-v1-2026-09-23.md) |
 | Kit v1.1 | Sep 26, 2026 | Twelve changes, one per miss (see KIT-CHANGELOG.md). Inputs rebuilt from the v1.1 prompts. |
 | Suite v2 re-run, kit v1.1, Sonnet 4.6 | Sep 26, 2026 | **18 of 20 passed all three** (was 14); 58 of 60 runs; 119 of 120 flaws; 0 invented Critical/High on the clean app (was 2). Fixed: T5, T6, T9, T13, T15, T20. New single-run misses T8, T19, both passed by the second grader. [Before/after table](results/kit-v1.0-vs-v1.1-2026-09-26.md) |
 | Extended re-run, kit v1.1 | Sep 26, 2026 | **9 of 12** (was 5). Fixed: E3, E4, E5, E7, E8, E10. Misses E2, E9 (both passed by the second grader; old rules conflict with the new two-sentence-decline and review-anyway behavior) and E12 (a missing feature rated High; v1.2 item). |
