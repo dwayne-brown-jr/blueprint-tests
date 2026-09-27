@@ -2,6 +2,10 @@
 
 Every change to the Blueprint kit, newest first. Test results behind each change are published at blueprint-builder-kit.netlify.app/tests.html.
 
+## v1.4.1 — September 27, 2026 (wording only)
+No prompt text changed; the v1.4 test results apply to this version.
+- Every stage header and Start Here now say the kit is tested with Claude (Sonnet 4.6 or better); other AI chats are untested until results are published. Previous wording said "Claude or ChatGPT".
+
 ## v1.4 — September 27, 2026 (fixes from the v1.3 run)
 The v1.3 run scored 19 of 20, 12 of 12 and, for the first time at three runs each, 2 of 5 on the phone scenarios (18 of 20 and 4 of 5 on Haiku). These changes address what was left.
 - Stage 2: one or two features over the V1 cap get cut by the AI, with a one-line reason each, and the spec is written in the same reply; it asks first only when you've insisted every feature is a must-have or there are many more than seven (T19). Therapy and session notes, intake forms, medical history and medications are named as health information (Haiku T19).
