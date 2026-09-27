@@ -2,7 +2,7 @@
 
 Blueprint is a kit of prompts that makes an AI plan before it builds, push back on bad ideas, and check an app's security before launch. This repository holds everything we used to test it, so you can check our work instead of taking our word for it.
 
-**Kit versions tested:** v1.0 (September 23, 2026), v1.1 and v1.2 (September 26, 2026). **Site:** https://blueprint-builder-kit.netlify.app
+**Kit versions tested:** v1.0 (September 23, 2026), v1.1, v1.2 and v1.3 (September 26 to 27, 2026). **Site:** https://blueprint-builder-kit.netlify.app
 
 ## What's here
 | Folder | What it holds |
@@ -41,6 +41,11 @@ Blueprint is a kit of prompts that makes an AI plan before it builds, push back 
 | Suite v2 re-run, kit v1.2, Sonnet 4.6 | Sep 26, 2026 | **19 of 20 passed all three**; 59 of 60 runs; 119 of 120 flaws. Fixed: T8, T19. The one miss is T15 (one review in three rated a browser-only upload check as High; both graders agree). [Before/after table](results/kit-v1.1-vs-v1.2-2026-09-26.md) |
 | Extended re-run, kit v1.2 | Sep 26, 2026 | **12 of 12 passed all three**; 36 of 36 runs. Fixed: E2, E9, E12. |
 | Haiku 4.5 re-run, kit v1.2 | Sep 26, 2026 | **19 of 20**; 40 of 40 flaws. Fixed: T10, T15. The one miss is T12 (asked two more questions instead of giving the DON'T verdict; built nothing; both graders agree). |
+| Kit v1.3 | Sep 26, 2026 | Two sentences from the v1.2 misses: a browser-only upload check behind a private, per-user bucket is Medium; Round 1 ends when you answer, however many questions were asked. Phone scenarios join the three-run suite. |
+| Suite v2 re-run, kit v1.3, Sonnet 4.6 | Sep 26, 2026 | **19 of 20 passed all three**; 59 of 60 runs; **120 of 120 flaws**; 0 invented Critical/High. T15 fixed. New single-run miss T19: counted eight V1 features, proposed the cut and asked to confirm before writing the spec (the v1.2 'propose the cut' rule meeting a rule that expected the spec in that turn; both graders agree it fails as written). [Before/after](results/kit-v1.2-vs-v1.3-2026-09-27.md) |
+| Extended re-run, kit v1.3 | Sep 26, 2026 | **12 of 12**; 36 of 36 runs. |
+| Phone-app scenarios, kit v1.3, Sonnet 4.6 | Sep 26 to 27, 2026 | **2 of 5 passed all three** (T21; T24 with 28 of 30 flaws). T22 0 of 3: it steers to a web app because of the store payment rules, then never says where login tokens are kept (rule c); both graders agree. T23 1 of 3 by the suite's grader, 3 of 3 by Opus (which milestone the real-phone slice sits in). T25 2 of 3: one invented High. [Table](results/phone-2026-09-27-kit-v1.3.md) |
+| Haiku 4.5 re-run, kit v1.3 | Sep 27, 2026 | **18 of 20** on the original set (T12 now reaches the reframe but stops before the verdict; T19 leaves session notes unmarked), 40 of 40 flaws; phone **4 of 5** (T24: 8 of 10). Both graders agree on all three misses. |
 
 ## Run it yourself
 - **Inside Claude:** open the live test page (link on https://blueprint-builder-kit.netlify.app/tests.html). It runs the scenarios on your own Claude account and shows every answer and grade.

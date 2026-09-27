@@ -1,6 +1,6 @@
 # Scenarios
 
-Each file holds the exact input sent to the AI and the pass rule written before any test ran. Inputs shown are for kit v1.2; the exact inputs for each dated run are in the harness JSON files: v1.0 `tests-v2.json` / `tests-v2-extended.json`, v1.1 `tests-v2.1.json` / `tests-v2-extended-v1.1.json`, v1.2 `tests-v2.2.json` / `tests-v2-extended-v1.2.json`.
+Each file holds the exact input sent to the AI and the pass rule written before any test ran. Inputs shown are for kit v1.3; the exact inputs for each dated run are in the harness JSON files: v1.0 `tests-v2.json` / `tests-v2-extended.json`, v1.1 `tests-v2.1.json` / `tests-v2-extended-v1.1.json`, v1.2 `tests-v2.2.json` / `tests-v2-extended-v1.2.json`, v1.3 `tests-v2.3.json` / `tests-v2-extended-v1.3.json` / `tests-phone-v1.3.json`.
 
 Rule changes, applied to future runs only: before the v1.1 run, T5 (identifies design input and builds nothing), T9 (plain-words statement of what would be exposed) and E5 (no longer asks for a detail the input doesn't contain); before the v1.2 run, E2 (a one-sentence reason for not skipping ahead is enough) and E9 (an explicit ask is optional when the review proceeds with the missing context noted).
 
@@ -48,7 +48,7 @@ Written after suite v2, to probe things the first 20 never touch. Same rules: th
 
 ## Phone-app scenarios (T21 to T25, added September 23, 2026)
 
-Written for the phone-app additions to stages 3, 5 and 6 (kit v1.1). Test app: `apps/plantpal-expo/`, answer key in `answer-keys/`. Harness: `harness/test-suite-phone-v1.html` + `harness/tests-phone-v1.json`. First results: `results/phone-v1-2026-09-23.md` (1 run each, in Claude Code; the 3-run test-page result is still to come).
+Written for the phone-app additions to stages 3, 5 and 6 (kit v1.1). Test app: `apps/plantpal-expo/`, answer key in `answer-keys/`. Harness: `harness/test-suite-phone-v1.html` + `harness/tests-phone-v1.json`. First results: `results/phone-v1-2026-09-23.md` (1 run each, in Claude Code, on a v1.1 draft). From kit v1.3 they run three times on Sonnet and once on Haiku with everything else; inputs rebuilt from the v1.3 prompts (`harness/tests-phone-v1.3.json`).
 
 | Test | Scenario | Kit stage | Pass rule |
 |---|---|---|---|

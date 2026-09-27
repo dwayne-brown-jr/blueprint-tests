@@ -2,6 +2,12 @@
 
 Every change to the Blueprint kit, newest first. Test results behind each change are published at blueprint-builder-kit.netlify.app/tests.html.
 
+## v1.3 — September 26, 2026 (fixes from the v1.2 re-run)
+The v1.2 re-run scored 19 of 20, 12 of 12 and 19 of 20 on Haiku. Two sentences address the two misses, and the phone-app scenarios join the full three-run suite.
+- Stage 6: a file-type or size check that lives only in the browser is Medium at most when the bucket is private, per-user and served through expiring links (T15, one review in three had rated it High). The security-gate skill says the same.
+- Stage 1: once you've answered, Round 1 is over however many questions were asked; the AI goes to the reframe and verdict instead of asking more (Haiku T12). The architect skill says the same.
+- Tests: the five phone-app scenarios (T21 to T25) now run three times each on Sonnet and once on Haiku, like everything else, with inputs rebuilt from the v1.3 prompts.
+
 ## v1.2 — September 26, 2026 (fixes from the v1.1 re-run)
 The v1.1 re-run scored 18 of 20, 9 of 12 and 17 of 20 on Haiku. These five changes address what was left.
 - Stage 2: when it marks health, children's, education or financial data as sensitive, it now also says plainly that a privacy or legal review is needed before launch, and never files that under "Out of Scope" (T19).
