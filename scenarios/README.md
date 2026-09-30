@@ -1,5 +1,7 @@
 # Scenarios
 
+*Each scenario contains the exact Blueprint Kit prompt that was tested. You can read and run them; you can't copy or redistribute the prompt text. See [LICENSE.md](../LICENSE.md).*
+
 Each file holds the exact input sent to the AI and the pass rule written before any test ran. Inputs shown are for kit v1.4; the exact inputs for each dated run are in the harness JSON files: v1.0 `tests-v2.json` / `tests-v2-extended.json`, v1.1 `tests-v2.1.json` / `tests-v2-extended-v1.1.json`, v1.2 `tests-v2.2.json` / `tests-v2-extended-v1.2.json`, v1.3 `tests-v2.3.json` / `tests-v2-extended-v1.3.json` / `tests-phone-v1.3.json`, v1.4 `tests-v2.4.json` / `tests-v2-extended-v1.4.json` / `tests-phone-v1.4.json`.
 
 Rule changes, applied to future runs only: before the v1.1 run, T5 (identifies design input and builds nothing), T9 (plain-words statement of what would be exposed) and E5 (no longer asks for a detail the input doesn't contain); before the v1.2 run, E2 (a one-sentence reason for not skipping ahead is enough) and E9 (an explicit ask is optional when the review proceeds with the missing context noted); before the v1.4 run, T22 (a protected browser token scheme counts when the AI recommends the web app) and T23 (the real-phone slice may sit in or before the first milestone).

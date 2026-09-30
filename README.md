@@ -2,6 +2,8 @@
 
 Blueprint is a kit of prompts that makes an AI plan before it builds, push back on bad ideas, and check an app's security before launch. This repository holds everything we used to test it, so you can check our work instead of taking our word for it.
 
+**License:** read, run and quote everything here. The Blueprint Kit prompt text inside the test files can't be copied or redistributed. See [LICENSE.md](LICENSE.md).
+
 **Kit versions tested:** v1.0 (September 23, 2026), v1.1 and v1.2 (September 26), v1.3 and v1.4 (September 26 to 27, 2026). **Site:** https://blueprint-builder-kit.netlify.app
 
 ## What's here
